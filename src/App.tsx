@@ -1,5 +1,7 @@
 import MenuNav from "./components/menu/presentacion/menu"
+import Footer from "./components/Footer/Footer"
 import NotFound from "./components/NotFound/NotFount"
+import Construc_page from "./components/Construction/construct_page"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,14 +14,12 @@ const Layout = () => {
     <>
       <MenuNav />
       <Outlet />
+      <Footer />
     </>
   )
 }
 
-// 🔹 Páginas
-const Home = () => (<> <br /> <br /> <br /><h1>Home</h1> </>)
-const Histaria = () => (<> <br /> <br /> <br /><h1>Historia</h1> </>)
-const Contacto = () => (<> <br /> <br /> <br /><h1>Contacto</h1> </>)
+
 
 // 🔹 Router
 const router = createBrowserRouter([
@@ -27,9 +27,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { index: true, element: <Home /> },
-      { path: "historia", element: <Histaria /> },
-      { path: "contacto", element: <Contacto /> },
+      { index: true, element: <Construc_page /> },
+      { path: "servicios", element: <Construc_page /> },
       { path: "*", element: <NotFound /> },
     ],
   },
