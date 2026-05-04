@@ -165,15 +165,15 @@ app.get("/auth/me", (req, res) => {
 
 const menu = [
   {id:1, icon: "bi bi-house-fill", name: "Inicio", path: "/" },
-  { id: 2, icon: "bi-people", name: "Nosotros", 
+  { id: 2, icon: "bi-people-fill", name: "Nosotros", 
     children: [
-      { id: 3, icon: "bi-clock", name: "Historia", path: "/historia" },
-      { id: 4, icon: "bi-person", name: "Equipo", path: "/equipo" },
+      { id: 3, icon: "bi-clock-fill", name: "Historia", path: "/historia" },
+      { id: 4, icon: "bi-person-fill", name: "Equipo", path: "/equipo" },
       { id: 7, icon: "bi-bullseye", name: "Misión y Visión", path: "/mision-vision" },
     ]
    },
-   { id: 5, icon: "bi-gear", name: "Servicios", path: "/servicios" },
-   { id: 6, icon: "bi-envelope", name: "Contacto", path: "/contacto" },
+   { id: 5, icon: "bi-gear-fill", name: "Servicios", path: "/servicios" },
+   { id: 6, icon: "bi-envelope-fill", name: "Contacto", path: "/contacto" },
 
 ];
 

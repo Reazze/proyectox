@@ -1,19 +1,21 @@
-import { useMenu } from "../aplication/hooks/useMenu";
-import { MenuItem } from "./menuItem";
-import logo from "../../../assets/react.svg";
+import { useMenu } from "../aplication/hooks/useMenu"
+import { MenuItem } from "./menuItem"
+import { Link } from "react-router-dom"
+import logo from "../../../assets/react.svg"
 
 export const MenuNav = () => {
-  const menu = useMenu();
+  const menu = useMenu()
 
   return (
     <nav className="navbar navbar-expand-lg bg-white shadow-sm border-bottom fixed-top">
       <div className="container-fluid px-4">
 
-        <a className="navbar-brand fw-bold fs-4" href="./">
+        {/* LOGO */}
+        <Link className="navbar-brand fw-bold fs-4" to="/">
           <img src={logo} alt="Logo" width="70" className="img-fluid mx-4" />
-        </a>
+        </Link>
 
-        {/* SOLO MOBILE */}
+        {/* MOBILE BUTTON */}
         <button
           className="navbar-toggler border-0 d-lg-none"
           type="button"
@@ -23,9 +25,9 @@ export const MenuNav = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* SOLO DESKTOP */}
+        {/* DESKTOP */}
         <div className="collapse navbar-collapse justify-content-between d-none d-lg-flex">
-          
+
           <ul className="navbar-nav mx-auto gap-3">
             {menu.map((item) => (
               <li key={item.id} className="nav-item">
@@ -43,9 +45,10 @@ export const MenuNav = () => {
               </span>
             </i>
           </div>
+
         </div>
 
-        {/* SOLO MOBILE */}
+        {/* MOBILE */}
         <div
           className="offcanvas offcanvas-end w-50 d-lg-none"
           tabIndex={-1}
@@ -81,7 +84,7 @@ export const MenuNav = () => {
 
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default MenuNav;
+export default MenuNav
