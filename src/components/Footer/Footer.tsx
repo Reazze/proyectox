@@ -2,8 +2,9 @@ import React from "react";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-dark text-light pt-5 pb-3">
-      <div className="container">
+    <footer className="bg-dark text-light pt-2 pb-3">
+        <hr className="border-secondary" />
+      <div className="container mt-4">
         <div className="row">
 
           {/* Marca / Descripción */}

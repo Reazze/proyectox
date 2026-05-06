@@ -1,7 +1,10 @@
 import MenuNav from "./components/menu/presentacion/menu"
 import Footer from "./components/Footer/Footer"
 import NotFound from "./components/NotFound/NotFount"
-import Construc_page from "./components/Construction/construct_page"
+import Construct_page from "./components/Construction/construct_page"
+import Services from "./components/Services/services"
+import Home from "./components/Home/home"
+import Contact from "./components/contact/contact"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -27,8 +30,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { index: true, element: <Construc_page /> },
-      { path: "servicios", element: <Construc_page /> },
+      { index: true, element: <Home /> },
+      { path: "servicios", element: <Services /> },
+      { path: "contacto", element: <Contact /> },
+      { path: "historia", element: <Construct_page /> },
+      { path: "equipo", element: <Construct_page /> },
+      {path: "mision-vision", element: <Construct_page />},
       { path: "*", element: <NotFound /> },
     ],
   },

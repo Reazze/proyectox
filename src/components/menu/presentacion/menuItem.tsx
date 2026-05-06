@@ -17,7 +17,7 @@ export const MenuItem = ({ item }: { item: Menu }) => {
         <ul className="dropdown-menu border-0">
           {item.children.map((child) => (
             <li key={child.id}>
-              <Link className="dropdown-item" to={child.path?? "*"}>
+              <Link className="dropdown-item" to={child.path?? " "}>
                 <i className={`bi ${child.icon} text-secondary`}></i>{" "}
                 {child.name}
               </Link>
@@ -30,7 +30,7 @@ export const MenuItem = ({ item }: { item: Menu }) => {
 
   return (
     <li className="nav-item d-flex align-items-center">
-      <Link className="nav-link fw-semibold" to={item.path ?? "*"}>
+      <Link className="nav-link fw-semibold" to={item.path ?? " "}>
         <i className={`bi ${item.icon} text-secondary`}></i> {item.name}
       </Link>
     </li>

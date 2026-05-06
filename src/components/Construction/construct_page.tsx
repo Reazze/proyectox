@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import {Link} from "react-router-dom";
 
 export const UnderConstruction: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -82,9 +83,9 @@ export const UnderConstruction: React.FC = () => {
 
         {/* Botón */}
         <div>
-          <a href="/" className="btn btn-outline-light px-4">
+          <Link to="/" className="btn btn-outline-light px-4">
             Volver al inicio
-          </a>
+          </Link>
         </div>
       </div>
     </div>

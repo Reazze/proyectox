@@ -1,18 +1,18 @@
 import { useMenu } from "../aplication/hooks/useMenu"
 import { MenuItem } from "./menuItem"
 import { Link } from "react-router-dom"
-import logo from "../../../assets/react.svg"
+import logo from "../../../assets/holding_logo.png"
 
 export const MenuNav = () => {
   const menu = useMenu()
 
   return (
-    <nav className="navbar navbar-expand-lg bg-white shadow-sm border-bottom fixed-top">
+    <nav className="navbar navbar-expand-lg shadow-sm border-bottom fixed-top" style={{background: "rgb(255, 255, 255, 0.8)"}}>
       <div className="container-fluid px-4">
 
         {/* LOGO */}
         <Link className="navbar-brand fw-bold fs-4" to="/">
-          <img src={logo} alt="Logo" width="70" className="img-fluid mx-4" />
+          <img src={logo} alt="Logo" width="140" className="img-fluid mx-4" />
         </Link>
 
         {/* MOBILE BUTTON */}
