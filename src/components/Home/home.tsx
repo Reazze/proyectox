@@ -1,9 +1,8 @@
-import { HeroCanvas } from '../widgets/hero'
-
+import Carrusel from '../widgets/Carrusel/presentacion/Carrusel'
 export const home = () => {
   return (
     <>
-        <HeroCanvas title='Inicio' subtitle='Bienvenido a nuestra página' />
+        <Carrusel />
     </>
   )
 }

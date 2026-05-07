@@ -2,6 +2,7 @@ import express from "express";
 import type { Request, Response } from "express";
 import cors from "cors";
 
+
 const app = express();
 const PORT = 8000;
 
@@ -177,8 +178,18 @@ const menu = [
 
 ];
 
+const carrusel = [
+  { id: 1, image: "/src/assets/hero_fondo.png", title: "Bienvenido a Nuestra Empresa", description: "Ofrecemos soluciones innovadoras para tu negocio."},
+  { id: 2, image: "/src/assets/hero_fondo.png", title: "Nuestros Servicios", description: "Descubre la amplia gama de servicios que ofrecemos.", path: "/servicios" },
+  { id: 3, image: "/src/assets/hero_fondo.png", title: "Contáctanos", description: "Estamos aquí para ayudarte. ¡Contáctanos hoy mismo!", path: "/contacto" }
+];
+
 app.get("/menu", (req, res) => {
   res.json(menu);
+});
+
+app.get("/carrusel", (req, res) => {
+  res.json(carrusel);
 });
 
 
