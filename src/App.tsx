@@ -5,6 +5,7 @@ import Construct_page from "./components/Construction/construct_page"
 import Services from "./components/Services/services"
 import Home from "./components/Home/home"
 import Contact from "./components/contact/contact"
+import AuthProvider from "./auth/presentation/AuthProvider"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
       { path: "contacto", element: <Contact /> },
       { path: "historia", element: <Construct_page /> },
       { path: "equipo", element: <Construct_page /> },
-      {path: "mision-vision", element: <Construct_page />},
+      { path: "mision-vision", element: <Construct_page /> },
       { path: "*", element: <NotFound /> },
     ],
   },
@@ -43,5 +44,9 @@ const router = createBrowserRouter([
 
 // 🔹 App principal
 export default function App() {
-  return <RouterProvider router={router} />
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  )
 }

@@ -4,10 +4,10 @@ import type { CarruselRepositorio } from "../../domain/repositories/CarruselRepo
 const baseUrl = "http://localhost:8000";
 export class CarruselApi implements CarruselRepositorio {
     async getCarrusel(): Promise<Carrusel[]> {
-        try{
-            const response = await fetch(`${baseUrl}/carrusel`)
-            const data = await response.json();
-            return data;
+        try {
+            const response = await fetch(`${baseUrl}/carrusel`);
+            const json = await response.json();
+            return json.data;
         } catch (error) {
             console.error("Error fetching carrusel:", error);
             throw error;
