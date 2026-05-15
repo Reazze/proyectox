@@ -1,15 +1,14 @@
-import { useMemo, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useAuth } from "../../auth/presentation/useAuth";
-import { ProductApi } from "../infraestructure/api/productApi";
+import { useCart } from "../../cart/presentation/useCart";
 import { useBestSellers } from "../aplication/hooks/useBestSellers";
 import BestSellers from "./BestSellers";
 
 const ProductsHomeSection = () => {
   const { user, openLoginModal } = useAuth();
+  const { addToCart } = useCart();
   const { bestSellers, loading, error } = useBestSellers(4);
-  //const [message, setMessage] = useState<string | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const productApi = useMemo(() => new ProductApi(), []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -69,13 +68,11 @@ const ProductsHomeSection = () => {
       return;
     }
 
-   // try {
-      await productApi.addToCart(productId);
-     // setMessage("Producto agregado al carrito correctamente.");
-//window.setTimeout(() => setMessage(null), 3000);
-    //} catch (error) {
-     // setMessage(error instanceof Error ? error.message : "Error agregando al carrito.");
-   // }
+    try {
+      await addToCart(productId, 1);
+    } catch {
+      // El mensaje de error se muestra desde el contexto del carrito.
+    }
   };
 
   return (

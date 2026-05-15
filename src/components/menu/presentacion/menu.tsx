@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from "react"
 import { useMenu } from "../aplication/hooks/useMenu"
 import { MenuItem } from "./menuItem"
 import { useAuth } from "../../../auth/presentation/useAuth"
+import { useCart } from "../../../cart/presentation/useCart"
 import { Link } from "react-router-dom"
 import logo from "../../../assets/holding_logo.png"
 
 export const MenuNav = () => {
   const menu = useMenu()
   const { user, logout, openLoginModal } = useAuth()
+  const { openCart, cartCount } = useCart()
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const userMenuRef = useRef<HTMLDivElement | null>(null)
 
@@ -99,12 +101,13 @@ export const MenuNav = () => {
             <button type="button" className="btn btn-outline-secondary btn-icon" aria-label="Buscar">
               <i className="bi bi-search fs-5"></i>
             </button>
-            <button type="button" className="btn btn-outline-secondary btn-icon" aria-label="Carrito">
-              <i className="bi bi-cart fs-5 position-relative">
+            <button type="button" className="btn btn-outline-secondary btn-icon position-relative" aria-label="Carrito" onClick={openCart}>
+              <i className="bi bi-cart fs-5"></i>
+              {cartCount > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-                  2
+                  {cartCount}
                 </span>
-              </i>
+              )}
             </button>
             {user ? (
               <div className="dropdown" ref={userMenuRef}>
@@ -209,6 +212,12 @@ export const MenuNav = () => {
                   </button>
                 </>
               )}
+              <button type="button" className="btn btn-outline-secondary" onClick={() => {
+                closeMobileMenu()
+                openCart()
+              }}>
+                Ver carrito
+              </button>
             </div>
 
           </div>

@@ -6,6 +6,7 @@ import Services from "./components/Services/services"
 import Home from "./components/Home/home"
 import Contact from "./components/contact/contact"
 import AuthProvider from "./auth/presentation/AuthProvider"
+import CartProvider from "./cart/presentation/CartProvider"
 import ProductPage from "./product/presentation/ProductPage"
 import {
   createBrowserRouter,
@@ -48,7 +49,9 @@ const router = createBrowserRouter([
 export default function App() {
   return (
     <AuthProvider>
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </AuthProvider>
   )
 }

@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState, useRef, type FormEvent } from "react";
+import { useEffect, useState, useRef, type FormEvent } from "react";
 import { useAuth } from "../../auth/presentation/useAuth";
-import { ProductApi } from "../infraestructure/api/productApi";
+import { useCart } from "../../cart/presentation/useCart";
 import { useCategories } from "../aplication/hooks/useCategories";
 import { useBestSellers } from "../aplication/hooks/useBestSellers";
 import { useProducts } from "../aplication/hooks/useProducts";
@@ -17,7 +17,7 @@ const ProductPage = () => {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [status, setStatus] = useState<string | null>(null);
-  const api = useMemo(() => new ProductApi(), []);
+  const { addToCart: addToCartToCart, openCart } = useCart();
   const { products, loading, error, totalPages, total, decreaseStock } = useProducts(page, {
     categoria,
     search: searchTerm,
@@ -110,8 +110,9 @@ const ProductPage = () => {
     }
 
     try {
-      await api.addToCart(productId, quantity);
+      await addToCartToCart(productId, quantity);
       decreaseStock(productId, quantity);
+      openCart();
       setStatus("Producto agregado al carrito con éxito.");
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Error agregando el producto al carrito.");

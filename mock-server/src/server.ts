@@ -366,6 +366,10 @@ const carts: Cart[] = [
         productId: 1,
         quantity: 2,
       },
+      {
+        productId:2,
+        quantity: 1,
+      }
     ],
   },
 ];
@@ -762,9 +766,17 @@ app.post(
 
     product.stock -= quantity;
 
+    const detailedItems = cart.items.map((item) => {
+      const productDetail = getProductById(item.productId);
+      return {
+        product: productDetail,
+        quantity: item.quantity,
+      };
+    });
+
     res.json({
       success: true,
-      data: cart,
+      data: detailedItems,
     });
   }
 );
@@ -816,9 +828,17 @@ app.put(
     item.quantity = quantity;
     product.stock -= delta;
 
+    const detailedItems = cart.items.map((item) => {
+      const productDetail = getProductById(item.productId);
+      return {
+        product: productDetail,
+        quantity: item.quantity,
+      };
+    });
+
     res.json({
       success: true,
-      data: cart,
+      data: detailedItems,
     });
   }
 );
@@ -850,9 +870,17 @@ app.delete(
       (item) => item.productId !== productId
     );
 
+    const detailedItems = cart.items.map((item) => {
+      const productDetail = getProductById(item.productId);
+      return {
+        product: productDetail,
+        quantity: item.quantity,
+      };
+    });
+
     res.json({
       success: true,
-      data: cart,
+      data: detailedItems,
     });
   }
 );
@@ -874,6 +902,7 @@ app.post(
 
     res.json({
       success: true,
+      data: [],
       message: "Carrito limpiado correctamente",
     });
   }
@@ -891,15 +920,14 @@ const menu = [
     path: "/",
   },
   {
-    id: 2,
-    //icon: "bi bi-telephone-fill",
-    name: "Contacto",
-    path: "/contacto",
-  },
-  {
     id: 3,
     name: "Productos",
     path: "/productos",
+  },
+  {
+    id: 2,
+    name: "Contacto",
+    path:"/contacto"
   }
 ];
 
