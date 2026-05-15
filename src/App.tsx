@@ -6,6 +6,7 @@ import Services from "./components/Services/services"
 import Home from "./components/Home/home"
 import Contact from "./components/contact/contact"
 import AuthProvider from "./auth/presentation/AuthProvider"
+import ProductPage from "./product/presentation/ProductPage"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "servicios", element: <Services /> },
       { path: "contacto", element: <Contact /> },
+      { path: "productos", element: <ProductPage /> },
       { path: "historia", element: <Construct_page /> },
       { path: "equipo", element: <Construct_page /> },
       { path: "mision-vision", element: <Construct_page /> },

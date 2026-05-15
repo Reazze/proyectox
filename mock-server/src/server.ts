@@ -35,6 +35,7 @@ type Product = {
   categorias: string[];
   sku: string;
   stock: number;
+  ventas: number;
 };
 
 type CartItem = {
@@ -58,6 +59,38 @@ const categories = [
     children: [
       { id: 2, nombre: "laptops" },
       { id: 3, nombre: "gaming" },
+      { id: 4, nombre: "smartphones" },
+      { id: 5, nombre: "tablets" },
+      { id: 6, nombre: "accesorios" },
+      { id: 7, nombre: "audio" },
+      { id: 8, nombre: "wearables" },
+    ],
+  },
+  {
+    id: 9,
+    nombre: "ropa",
+    children: [
+      { id: 10, nombre: "camisetas" },
+      { id: 11, nombre: "pantalones" },
+      { id: 12, nombre: "chaquetas" },
+      { id: 13, nombre: "calzado" },
+    ],
+  },
+  {
+    id: 14,
+    nombre: "hogar",
+    children: [
+      { id: 15, nombre: "cocina" },
+      { id: 16, nombre: "dormitorio" },
+      { id: 17, nombre: "decoración" },
+    ],
+  },
+  {
+    id: 18,
+    nombre: "deporte",
+    children: [
+      { id: 19, nombre: "bicicletas" },
+      { id: 20, nombre: "fitness" },
     ],
   },
 ];
@@ -65,26 +98,244 @@ const categories = [
 const products: Product[] = [
   {
     id: 1,
-    nombre: "Laptop Gamer XYZ",
+    nombre: "Laptop Gamer XYZ Pro",
     image: "/src/assets/hero_fondo.png",
     descripcion:
-      "Potente laptop gamer con Intel i7, 16GB RAM y RTX 3060.",
+      "Potente laptop gamer con Intel i7, 16GB RAM, RTX 3060 y pantalla 144Hz. Ideal para gaming y trabajo profesional.",
     precio: 1200,
     precio_oferta: 999,
-    categorias: ["laptops", "gaming"],
+    categorias: ["laptops", "gaming", "tecnología"],
     sku: "LAP-GAMER-XYZ",
     stock: 10,
+    ventas: 235,
   },
   {
     id: 2,
-    nombre: "Mouse RGB",
+    nombre: "Mouse RGB Gaming Pro",
     image: "/src/assets/hero_fondo.png",
-    descripcion: "Mouse gamer RGB con sensor óptico.",
+    descripcion: "Mouse gamer RGB con sensor óptico de 16000 DPI, switches Omron y iluminación RGB personalizable.",
     precio: 80,
     precio_oferta: 59,
-    categorias: ["gaming"],
+    categorias: ["gaming", "accesorios", "tecnología"],
     sku: "MOUSE-RGB",
     stock: 20,
+    ventas: 178,
+  },
+  {
+    id: 3,
+    nombre: "Teclado Mecánico RGB",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Teclado mecánico con switches Cherry MX Red, iluminación RGB por tecla y reposamuñecas ergonómico.",
+    precio: 150,
+    precio_oferta: 120,
+    categorias: ["gaming", "accesorios", "tecnología"],
+    sku: "KB-MECH-RGB",
+    stock: 15,
+    ventas: 142,
+  },
+  {
+    id: 4,
+    nombre: "Monitor 27\" 144Hz Gaming",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Monitor gaming de 27 pulgadas con resolución 1440p, 144Hz, 1ms de respuesta y tecnología G-Sync.",
+    precio: 400,
+    precio_oferta: 349,
+    categorias: ["monitores", "gaming", "tecnología"],
+    sku: "MON-27-144HZ",
+    stock: 8,
+    ventas: 89,
+  },
+  {
+    id: 5,
+    nombre: "Auriculares Inalámbricos Sony",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Auriculares inalámbricos con cancelación de ruido activa, batería de 30 horas y sonido de alta calidad.",
+    precio: 250,
+    precio_oferta: 199,
+    categorias: ["audio", "tecnología", "accesorios"],
+    sku: "HEAD-SONY-WL",
+    stock: 25,
+    ventas: 156,
+  },
+  {
+    id: 6,
+    nombre: "Smartphone Samsung Galaxy S23",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Smartphone de última generación con cámara de 50MP, procesador Snapdragon 8 Gen 2 y pantalla AMOLED 120Hz.",
+    precio: 900,
+    precio_oferta: 799,
+    categorias: ["smartphones", "tecnología", "móviles"],
+    sku: "PHONE-S23",
+    stock: 12,
+    ventas: 203,
+  },
+  {
+    id: 7,
+    nombre: "Tablet iPad Air 5ta Gen",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Tablet Apple con chip M1, pantalla Liquid Retina de 10.9\" y compatibilidad con Apple Pencil.",
+    precio: 600,
+    precio_oferta: 549,
+    categorias: ["tablets", "tecnología", "apple"],
+    sku: "TAB-IPAD-AIR",
+    stock: 18,
+    ventas: 127,
+  },
+  {
+    id: 8,
+    nombre: "Smartwatch Garmin Fenix 7",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Reloj inteligente multideporte con GPS, monitor de frecuencia cardíaca y batería de hasta 18 días.",
+    precio: 700,
+    precio_oferta: 599,
+    categorias: ["wearables", "deporte", "tecnología"],
+    sku: "WATCH-GARMIN",
+    stock: 6,
+    ventas: 94,
+  },
+  {
+    id: 9,
+    nombre: "Cámara DSLR Canon EOS R",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Cámara mirrorless full-frame con sensor de 30.3MP, video 4K y sistema de enfoque Dual Pixel CMOS AF.",
+    precio: 1800,
+    precio_oferta: 1599,
+    categorias: ["cámaras", "fotografía", "tecnología"],
+    sku: "CAM-CANON-R",
+    stock: 4,
+    ventas: 67,
+  },
+  {
+    id: 10,
+    nombre: "Consola PlayStation 5",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Consola de nueva generación con SSD ultra-rápido, gráficos 4K y compatibilidad con retrocompatibilidad.",
+    precio: 500,
+    precio_oferta: 449,
+    categorias: ["gaming", "consolas", "tecnología"],
+    sku: "PS5-STANDARD",
+    stock: 3,
+    ventas: 312,
+  },
+  {
+    id: 11,
+    nombre: "Zapatillas Nike Air Max",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Zapatillas deportivas con amortiguación Air Max, diseño moderno y materiales transpirables.",
+    precio: 120,
+    precio_oferta: 99,
+    categorias: ["ropa", "deporte", "calzado"],
+    sku: "SHOES-NIKE-AIR",
+    stock: 30,
+    ventas: 89,
+  },
+  {
+    id: 12,
+    nombre: "Camiseta Adidas Originals",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Camiseta clásica de algodón orgánico con logo Adidas, disponible en varios colores.",
+    precio: 35,
+    precio_oferta: 25,
+    categorias: ["ropa", "camisetas", "deporte"],
+    sku: "TSHIRT-ADIDAS",
+    stock: 45,
+    ventas: 134,
+  },
+  {
+    id: 13,
+    nombre: "Jeans Levi's 501",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Jeans clásicos de corte recto, confeccionados en denim de alta calidad con el icónico logo Levi's.",
+    precio: 80,
+    precio_oferta: 65,
+    categorias: ["ropa", "pantalones", "jeans"],
+    sku: "JEANS-LEVIS-501",
+    stock: 22,
+    ventas: 76,
+  },
+  {
+    id: 14,
+    nombre: "Chaqueta Bomber Cuero",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Chaqueta bomber de cuero genuino con forro interior, diseño vintage y cierre frontal.",
+    precio: 200,
+    precio_oferta: 159,
+    categorias: ["ropa", "chaquetas", "cuero"],
+    sku: "JACKET-BOMBER",
+    stock: 8,
+    ventas: 43,
+  },
+  {
+    id: 15,
+    nombre: "Bolso Tote Canvas",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Bolso tote de lona resistente con asas largas, perfecto para uso diario o como bolso de playa.",
+    precio: 45,
+    precio_oferta: 35,
+    categorias: ["accesorios", "bolsos", "moda"],
+    sku: "BAG-TOTE-CANVAS",
+    stock: 28,
+    ventas: 67,
+  },
+  {
+    id: 16,
+    nombre: "Cafetera Espresso Manual",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Cafetera italiana manual de aluminio con mango de baquelita, capacidad para 6 tazas.",
+    precio: 85,
+    precio_oferta: 69,
+    categorias: ["hogar", "cocina", "café"],
+    sku: "COFFEE-MACHINE",
+    stock: 16,
+    ventas: 98,
+  },
+  {
+    id: 17,
+    nombre: "Juego de Sábanas Algodón",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Juego de sábanas de algodón egipcio 400 hilos, incluye sábana bajera, encimera y fundas de almohada.",
+    precio: 120,
+    precio_oferta: 95,
+    categorias: ["hogar", "dormitorio", "textiles"],
+    sku: "SHEETS-COTTON",
+    stock: 12,
+    ventas: 54,
+  },
+  {
+    id: 18,
+    nombre: "Lámpara de Mesa Moderna",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Lámpara de mesa con base de mármol y pantalla de tela, proporciona iluminación cálida y ambiente.",
+    precio: 150,
+    precio_oferta: 119,
+    categorias: ["hogar", "iluminación", "decoración"],
+    sku: "LAMP-TABLE",
+    stock: 9,
+    ventas: 32,
+  },
+  {
+    id: 19,
+    nombre: "Set de Utensilios Cocina",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Set completo de utensilios de cocina de acero inoxidable, incluye 12 piezas esenciales.",
+    precio: 65,
+    precio_oferta: 49,
+    categorias: ["hogar", "cocina", "utensilios"],
+    sku: "KITCHEN-TOOLS",
+    stock: 20,
+    ventas: 87,
+  },
+  {
+    id: 20,
+    nombre: "Bicicleta Montaña Trek",
+    image: "/src/assets/hero_fondo.png",
+    descripcion: "Bicicleta de montaña con cuadro de aluminio, 21 velocidades y frenos de disco hidráulicos.",
+    precio: 800,
+    precio_oferta: 699,
+    categorias: ["deporte", "bicicletas", "outdoor"],
+    sku: "BIKE-TREK-MTB",
+    stock: 5,
+    ventas: 28,
   },
 ];
 
@@ -192,10 +443,54 @@ const authMiddleware = (
 ====================================================== */
 
 app.get("/productos", (_req: Request, res: Response) => {
+  const page = Number(_req.query.page ?? 1);
+  const limit = Number(_req.query.limit ?? 25);
+  const categoria = String(_req.query.categoria ?? "").toLowerCase();
+  const search = String(_req.query.search ?? "").toLowerCase();
+
+  let filtered = products;
+
+  if (categoria) {
+    filtered = filtered.filter((product) =>
+      product.categorias.some((cat) => cat.toLowerCase() === categoria)
+    );
+  }
+
+  if (search) {
+    filtered = filtered.filter((product) =>
+      product.nombre.toLowerCase().includes(search) ||
+      product.descripcion.toLowerCase().includes(search) ||
+      product.sku.toLowerCase().includes(search)
+    );
+  }
+
+  const total = filtered.length;
+  const normalizedPage = Math.max(1, page);
+  const normalizedLimit = Math.max(1, Math.min(limit, 100));
+  const totalPages = Math.max(1, Math.ceil(total / normalizedLimit));
+  const offset = (normalizedPage - 1) * normalizedLimit;
+  const paginated = filtered.slice(offset, offset + normalizedLimit);
+
   res.json({
     success: true,
-    total: products.length,
-    data: products,
+    total,
+    page: normalizedPage,
+    limit: normalizedLimit,
+    totalPages,
+    data: paginated,
+  });
+});
+
+app.get("/productos/mas-vendidos", (_req: Request, res: Response) => {
+  const limit = Number(_req.query.limit ?? 4);
+  const topProducts = [...products]
+    .sort((a, b) => b.ventas - a.ventas)
+    .slice(0, Math.max(1, Math.min(limit, 12)));
+
+  res.json({
+    success: true,
+    total: topProducts.length,
+    data: topProducts,
   });
 });
 
@@ -449,6 +744,13 @@ app.post(
       (item) => item.productId === productId
     );
 
+    if (quantity > product.stock) {
+      return res.status(400).json({
+        success: false,
+        message: "No hay suficiente stock disponible.",
+      });
+    }
+
     if (existingItem) {
       existingItem.quantity += quantity;
     } else {
@@ -457,6 +759,8 @@ app.post(
         quantity,
       });
     }
+
+    product.stock -= quantity;
 
     res.json({
       success: true,
@@ -492,7 +796,25 @@ app.put(
       });
     }
 
+    const product = getProductById(productId);
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: "Producto no encontrado",
+      });
+    }
+
+    const delta = quantity - item.quantity;
+
+    if (delta > 0 && delta > product.stock) {
+      return res.status(400).json({
+        success: false,
+        message: "No hay suficiente stock disponible para aumentar la cantidad.",
+      });
+    }
+
     item.quantity = quantity;
+    product.stock -= delta;
 
     res.json({
       success: true,
@@ -514,6 +836,14 @@ app.delete(
         success: false,
         message: "Carrito no encontrado",
       });
+    }
+
+    const item = cart.items.find((item) => item.productId === productId);
+    if (item) {
+      const product = getProductById(productId);
+      if (product) {
+        product.stock += item.quantity;
+      }
     }
 
     cart.items = cart.items.filter(
@@ -565,6 +895,11 @@ const menu = [
     //icon: "bi bi-telephone-fill",
     name: "Contacto",
     path: "/contacto",
+  },
+  {
+    id: 3,
+    name: "Productos",
+    path: "/productos",
   }
 ];
 
