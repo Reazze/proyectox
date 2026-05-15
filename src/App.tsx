@@ -13,15 +13,17 @@ import {
   RouterProvider,
   Outlet,
 } from "react-router-dom"
+import ScrollToTopButton from "./components/widgets/deslisador/spinn"
 
 // 🔹 Layout dentro del mismo archivo
 const Layout = () => {
   return (
     <>
       <MenuNav />
-      <Outlet />
-      <Footer />
+      <Outlet />   
+      <Footer />  
     </>
+
   )
 }
 
@@ -50,8 +52,9 @@ export default function App() {
   return (
     <AuthProvider>
       <CartProvider>
-        <RouterProvider router={router} />
+        <RouterProvider router={router} /> 
       </CartProvider>
+      <ScrollToTopButton />
     </AuthProvider>
   )
 }
