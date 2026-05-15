@@ -98,9 +98,6 @@ export const MenuNav = () => {
           </ul>
 
           <div className="d-flex align-items-center gap-3">
-            <button type="button" className="btn btn-outline-secondary btn-icon" aria-label="Buscar">
-              <i className="bi bi-search fs-5"></i>
-            </button>
             <button type="button" className="btn btn-outline-secondary btn-icon position-relative" aria-label="Carrito" onClick={openCart}>
               <i className="bi bi-cart fs-5"></i>
               {cartCount > 0 && (
